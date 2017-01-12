@@ -1,8 +1,11 @@
+# DO NOT USE
+This is a temporary fork that may be deleted.
+
 # React Native Notifications [![Build Status](https://travis-ci.org/wix/react-native-notifications.svg)](https://travis-ci.org/wix/react-native-notifications)
 
 Handle all the aspects of push notifications for your app, including remote and local notifications, interactive notifications, silent notifications, and more.
 
-**All the native iOS notifications features are supported!** 
+**All the native iOS notifications features are supported!**
 
 
 ## Supported Features
@@ -85,7 +88,7 @@ Declare the library as a dependency in your **app-project's** `build.gradle`:
 ```gradle
 dependencies {
 	// ...
-	
+
 	compile project(':reactnativenotifications')
 }
 ```
@@ -153,11 +156,11 @@ class App extends Component {
 		NotificationsIOS.addEventListener('remoteNotificationsRegistered', this.onPushRegistered.bind(this));
 		NotificationsIOS.requestPermissions();
 	}
-	
+
 	onPushRegistered(deviceToken) {
 		console.log("Device Token Received", deviceToken);
 	}
-	
+
 	componentWillUnmount() {
   		// prevent memory leaks!
   		NotificationsIOS.removeEventListener('remoteNotificationsRegistered', this.onPushRegistered.bind(this));
@@ -238,7 +241,7 @@ When you receive a push notification, you'll get an instance of `IOSNotification
 
 #### Background Queue (Important!)
 When a push notification is opened but the app is not running, the application will be in a **cold launch** state, until the JS engine is up and ready to handle the notification.
-The application will collect the events (notifications, actions, etc.) that happend during the cold launch for you. 
+The application will collect the events (notifications, actions, etc.) that happend during the cold launch for you.
 
 When your app is ready (most of the time it's after the call to `requestPermissions()`), just call to `NotificationsIOS.consumeBackgroundQueue();` in order to consume the background queue. For more info see `index.ios.js` in the example app.
 
@@ -275,7 +278,7 @@ import {NotificationsAndroid, PendingNotifications} from 'react-native-notificat
 PendingNotifications.getInitialNotification()
   .then((notification) => {
   		console.log("Initial notification was:", (notification ? notification.getData() : 'N/A');
-	})  	
+	})
   .catch((err) => console.error("getInitialNotifiation() failed", err));
 
 ```
@@ -423,7 +426,7 @@ After [preparing your app to receive VoIP push notifications](https://developer.
 ```objective-c
 #import "RNNotifications.h"
 #import <PushKit/PushKit.h>
-``` 
+```
 
 And the following methods:
 
@@ -468,9 +471,9 @@ componentWillUnmount() {
 
 > This section provides description for iOS. For notifications customization on Android, refer to [our wiki](https://github.com/wix/react-native-notifications/wiki/Android-Customizations#customizing-notifications-layout).
 
-Interactive notifications allow you to reply to a message right from the notification banner or take action right from the lock screen. 
+Interactive notifications allow you to reply to a message right from the notification banner or take action right from the lock screen.
 
-On the Lock screen and within Notification Center, you swipe from right to left 
+On the Lock screen and within Notification Center, you swipe from right to left
 to reveal actions. Destructive actions, like trashing an email, are color-coded red. Relatively neutral actions, like dismissing an alert or declining an invitation, are color-coded gray.
 
 For banners, you pull down to reveal actions as buttons. For popups, the actions are immediately visible — the buttons are right there.
@@ -593,7 +596,7 @@ The [example app](https://github.com/wix/react-native-notifications/tree/master/
 	- `default` (default) - Displayes up to 4 actions (full UI).
 	- `minimal` - Displays up tp 2 actions (minimal UI).
 
-	
+
 ## License
 The MIT License.
 
